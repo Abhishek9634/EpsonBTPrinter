@@ -14,17 +14,18 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate {
     
     var manager:CBCentralManager!
     
-    override init() {
-        super.init()
+    static let shared = BluetoothManager()
+    
+    func intialize() {
         self.manager = CBCentralManager()
         self.manager.delegate = self
     }
     
-    var state: CBManagerState = CBManagerState.unknown
-    
-    public var isBTEnabled: Bool {
-        return self.state == CBManagerState.poweredOn
+    override private init() {
+        super.init()
     }
+    
+    var state: CBManagerState = CBManagerState.unknown
     
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         self.state = central.state

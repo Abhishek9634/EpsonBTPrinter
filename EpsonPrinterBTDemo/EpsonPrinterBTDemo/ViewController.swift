@@ -13,9 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let printviewId = "printview"
-    
-    let btManager = BluetoothManager()
-    
+        
     fileprivate var printerList: [Epos2DeviceInfo] = []
     fileprivate var filterOption: Epos2FilterOption = Epos2FilterOption()
     
@@ -33,6 +31,8 @@ class ViewController: UIViewController {
         self.filterOption.portType = EPOS2_PORTTYPE_BLUETOOTH.rawValue
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        BluetoothManager.shared.intialize()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleBTNotification(_:)),
                                                name: NSNotification.Name(BLUETOOTH_DISABLED),
