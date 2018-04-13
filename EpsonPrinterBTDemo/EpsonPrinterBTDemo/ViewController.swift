@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     let printviewId = "printview"
     
+    let btManager = BluetoothManager()
+    
     fileprivate var printerList: [Epos2DeviceInfo] = []
     fileprivate var filterOption: Epos2FilterOption = Epos2FilterOption()
     
@@ -28,9 +30,13 @@ class ViewController: UIViewController {
     
     func setup() {
         self.filterOption.deviceType = EPOS2_TYPE_PRINTER.rawValue
-//        self.filterOption.portType = EPOS2_PORTTYPE_BLUETOOTH.rawValue
+        self.filterOption.portType = EPOS2_PORTTYPE_BLUETOOTH.rawValue
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleBTNotification(_:)),
+                                               name: NSNotification.Name(BLUETOOTH_DISABLED),
+                                               object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +51,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         super.viewWillDisappear(animated)
         
         while Epos2Discovery.stop() == EPOS2_ERR_PROCESSING.rawValue {
@@ -54,8 +61,16 @@ class ViewController: UIViewController {
         self.printerList.removeAll()
     }
     
+    @objc func handleBTNotification(_ notification: Notification) {
+        self.showBluetoohAlert()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @IBAction func discovery(_ sender: UIButton) {
-     
+        
         var result = EPOS2_SUCCESS.rawValue;
         
         while true {
@@ -99,7 +114,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.printerList.count)
         return self.printerList.count
     }
 }

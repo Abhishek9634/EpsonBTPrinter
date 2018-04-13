@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SiP-1V-9Jo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,35 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="6yz-Wh-s67">
+            <objects>
+                <viewController id="vBD-3s-7NS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VtD-ig-GWB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjo-39-gbp">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="MTa-Tl-bdX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pjo-39-gbp" firstAttribute="centerY" secondItem="VtD-ig-GWB" secondAttribute="centerY" id="6kL-S1-TmG"/>
+                            <constraint firstItem="Pjo-39-gbp" firstAttribute="centerX" secondItem="VtD-ig-GWB" secondAttribute="centerX" id="a3D-yV-rIj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0ui-0b-RmV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BDb-GZ-OfM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ips-Fq-e9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250.40000000000001" y="126.38680659670166"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EpsonPrinterBTDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,10 +48,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXh-nG-Vl7">
-                                <rect key="frame" x="16" y="121" width="343" height="526"/>
+                                <rect key="frame" x="16" y="221" width="343" height="426"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="526" id="9GR-GD-VG5"/>
+                                    <constraint firstAttribute="height" constant="426" id="9GR-GD-VG5"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeviceTableViewCell" id="SvM-VS-Voc" customClass="DeviceTableViewCell" customModule="EpsonPrinterBTDemo" customModuleProvider="target">
@@ -36,7 +65,10 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT1-NI-6Ki">
-                                <rect key="frame" x="169" y="50" width="37" height="30"/>
+                                <rect key="frame" x="137.5" y="124" width="100" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="kvk-zu-lnH"/>
+                                </constraints>
                                 <state key="normal" title="Retry"/>
                                 <connections>
                                     <action selector="discovery:" destination="BYZ-38-t0r" eventType="touchDown" id="JJM-v8-ffX"/>
@@ -47,7 +79,7 @@
                         <constraints>
                             <constraint firstItem="ZXh-nG-Vl7" firstAttribute="top" secondItem="DT1-NI-6Ki" secondAttribute="bottom" constant="41" id="0pf-b1-uBJ"/>
                             <constraint firstItem="ZXh-nG-Vl7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Pxg-Ze-hjR"/>
-                            <constraint firstItem="DT1-NI-6Ki" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="aGm-bi-Ijg"/>
+                            <constraint firstItem="DT1-NI-6Ki" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="aGm-bi-Ijg"/>
                             <constraint firstItem="DT1-NI-6Ki" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pas-3w-waM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZXh-nG-Vl7" secondAttribute="bottom" constant="20" id="rqc-kg-Iyn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZXh-nG-Vl7" secondAttribute="trailing" constant="16" id="tLF-Vr-6Lz"/>
@@ -61,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="126.38680659670166"/>
+            <point key="canvasLocation" x="1076" y="126.38680659670166"/>
         </scene>
         <!--Print View Controller-->
         <scene sceneID="sZn-uI-K8C">
@@ -90,7 +122,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdH-WL-dfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="126"/>
+            <point key="canvasLocation" x="1895.2" y="125.4872563718141"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QXG-vJ-Jjs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SiP-1V-9Jo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wbu-58-TDX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vBD-3s-7NS" kind="relationship" relationship="rootViewController" id="wms-aw-ogY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXe-W5-duO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690.39999999999998" y="125.4872563718141"/>
         </scene>
     </scenes>
 </document>

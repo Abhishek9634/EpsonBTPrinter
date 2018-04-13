@@ -78,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				46E931A2207F3FAC00D14E77 /* dutch_500.png */,
+				46F49CA4208093B10037FF9E /* BluetoothManager.swift */,
 				46E931A0207F33C300D14E77 /* MessageView.swift */,
 				46E4EA4D207E241C00E7EA7B /* AppDelegate.swift */,
 				46E9319E207F19D700D14E77 /* PrintViewController.swift */,
@@ -88,7 +89,6 @@
 				46E4EA59207E241D00E7EA7B /* Info.plist */,
 				46F8573D207E285F00C5EEE0 /* EposonSDK */,
 				46F49CA220808A6B0037FF9E /* DeviceTableViewCell.swift */,
-				46F49CA4208093B10037FF9E /* BluetoothManager.swift */,
 			);
 			path = EpsonPrinterBTDemo;
 			sourceTree = "<group>";
