@@ -26,4 +26,23 @@ extension UIViewController: CBCentralManagerDelegate {
             print("unknown")
         }
     }
+    
+    func showBluetoohAlert() {
+        let alertVC = UIAlertController(title: "Bluetooth",
+                                        message: "Please Enable Bluetooth!!!",
+                                        preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let settingAction = UIAlertAction(title: "Settings", style: .default) { (action) in
+                        if let url = URL(string: UIApplicationOpenSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        }
+        
+        alertVC.addAction(settingAction)
+        alertVC.addAction(okAction)
+        
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
 }
